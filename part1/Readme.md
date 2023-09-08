@@ -1,6 +1,6 @@
 ## Short Description
 
-An image classifier using Tensorflow and Docker for deployment.
+An image classifier using Tensorflow and Docker for deployment and file-sharing for communcatio.
 
 
 This was a mini-project for MPCS Distributed Systems course; classifier code provided by Professor Kyle Chard.
@@ -44,3 +44,17 @@ This was a mini-project for MPCS Distributed Systems course; classifier code pro
 *Notice*:
 - The steps and code were tested for the Linux Ubuntu distribution from the WSL2 (windows subsystem for linux) and using the Linux computers from the University of Chicago. 
 - I did not test the functionality on a MAC
+
+
+## Note on data sharing
+-  Dynamic sharing of contents in the host machine and the container is done via the `images` folder.
+
+- I provided an alternative solution using a *shared volume* between the host computer and the container to share data. 
+	- To use the volumes soution:
+	  1)  in `build.sh` , uncomment the lines in 13 and 14
+	  2) in `run.sh` comment the lines below "Solution 1"  and uncomment the lines below solution 2
+
+    - Notes:
+     	- This do not use the specific `images` folder but instead create an isolated directory in the host where the data between the host and the container is syncronized
+     	- Notice a directory would still be created in the host machine in this case, but would be isolated from the other files in the host machine, bringing more security (potentially with a performance penalty) 
+     	- Info about the volumes created, including where they are created in the host machine, can be accessed through `docker volume inspect <volume-name>`
