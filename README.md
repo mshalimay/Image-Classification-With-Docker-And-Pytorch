@@ -1,9 +1,6 @@
 ## Short Description
 An image classifier using Docker for deployment and file-sharing for communication.
 
-
-Classifier code provided by Kyle Chard.
-
 ## Instructions to run application
 1) Start the Docker engine
 	- In the host machine, start the Docker engine using Docker desktop or by running `sudo service docker start` in the terminal
@@ -57,3 +54,7 @@ Classifier code provided by Kyle Chard.
      	- This do not use the specific `images` folder but instead create an isolated directory in the host where the data between the host and the container is syncronized
      	- Notice a directory would still be created in the host machine in this case, but would be isolated from the other files in the host machine, bringing more security (potentially with a performance penalty) 
      	- Info about the volumes created, including where they are created in the host machine, can be accessed through `docker volume inspect <volume-name>`
+
+
+## References
+Classifier code provided by Kyle Chard.
